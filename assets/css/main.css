@@ -784,7 +784,7 @@ button[type="submit"] {
   outline: none; }
 
 .popup {
-  position: fixed;
+  position: absolute;
   top: 50px;
   left: 0;
   right: 0;
@@ -794,16 +794,8 @@ button[type="submit"] {
   color: #fff;
   border-radius: 5px;
   text-align: center;
+  display: none;
   padding: 10px 15px;
   transition: .22s all linear; }
-  .popup.active {
-    top: 50px; }
-@keyframes pulse {
-  0% {
-    opacity: 1; }
-  50% {
-    opacity: 0.5; }
-  100% {
-    opacity: 0; } }
 
 /*# sourceMappingURL=main.css.map */

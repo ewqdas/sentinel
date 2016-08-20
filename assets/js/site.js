@@ -3,7 +3,25 @@
 	// "use strict"
 
 
-	
+	 function notifyUser(content) {
+               var title;
+               var options;
+
+                  title = 'What up';
+                  options = {
+                     body: content,
+                     tag: 'preset',
+                     icon : ''
+                  };
+
+               Notification.requestPermission(function() {
+                  var notification = new Notification(title, options);
+               });
+            }
+
+    $(window).ready(function(){
+    	notifyUser("Its Senti time");
+    })
 
 	function Calendar(year, month) { 
 		days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
@@ -34,9 +52,6 @@
 		}
 
 	
-
-
-
 
 	$.fn.serializeObject = function()
     {
@@ -73,9 +88,8 @@
 			m = ($("#ihm").val() === undefined) ? d.getMonth(): $("#ihm").val();
 
 			if($("#ihy").val() === undefined){
-				console.log("yea")
 				$("#ihy").val(d.getFullYear());
-				console.log(d.getFullYear())
+				console.log($("#ihy").val(d.getFullYear()));
 			}
 			if($("#ihm").val() === undefined){
 				$("#ihm").val(d.getMonth());
@@ -113,16 +127,16 @@
 			var formData = $(ev.currentTarget).serializeObject();
 			var rm = new reminders();
 			console.log($(ev.currentTarget).serialize());
-			// rm.save(formData , {
-			// 	success : function(data){
-			// 		alert("Success");
-			// 		// $(".popup.reminder").addClass("active");
-			// 		$(".popup.remainder").fadeIn();
-			// 		router.navigate("",{trigger : true});
-			// 	},
-			// 	error : function(er){
-			// 	}
-			// });
+			rm.save(formData , {
+				success : function(data){
+					// alert("Success");
+					// $(".popup.reminder").addClass("active");
+					notifyUser("Reminder Created");
+					router.navigate("",{trigger : true});
+				},
+				error : function(er){
+				}
+			});
 			return false;
 		},
 
@@ -153,6 +167,16 @@
 
 		},
 
+		updateClock : function(){
+			// <div class="when">
+								// <span class="m">August <span class="d">10</span> / <span class="t"> 12:34</span> PM 
+							// </div>
+
+			// $(".when > .m").html($("ihm").val());
+			// $(".when > .d").html($("ihm").val());
+
+		}
+
 	});
 
 	var todayStuff = Backbone.Collection.extend({
@@ -173,8 +197,8 @@
 			var that = this;
 				todaystuff.fetch({
 					success : function(data){
-						// var temp = _.template($("#timeline-template").html(),{data : data.models});
-						// that.$el.html($temp);
+						var temp = _.template($("#timeline-template").html(),{data : data.models});
+						that.$el.html($temp);
 						console.log("Yeah")
 					},
 					error : function(er){
