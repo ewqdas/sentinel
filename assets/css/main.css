@@ -7,7 +7,7 @@ h4.page-title {
   margin: 10px 0 25px 0; }
 
 #cal-type-1 {
-  max-width: 90%;
+  max-width: 95%;
   margin: 0 auto; }
   #cal-type-1 .cal-wrap {
     display: flex;
@@ -15,6 +15,8 @@ h4.page-title {
   #cal-type-1 .months {
     max-width: 100px;
     width: 100%; }
+    #cal-type-1 .months select {
+      border: 1px solid #f1f1f1; }
     #cal-type-1 .months .title {
       padding: 5px;
       font-family: "Brandon";
@@ -73,19 +75,57 @@ h4.page-title {
         font-weight: 700;
         height: 58.333px;
         position: relative;
-        border: 1px solid #f9f9f9; }
+        border: 1px solid #f9f9f9;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: .22s all linear; }
         #cal-type-1 .calendar #days li .date {
           position: absolute;
           right: 10px;
           bottom: 10px; }
+        #cal-type-1 .calendar #days li .stuff {
+          position: absolute;
+          left: 0;
+          width: 100%;
+          top: 0;
+          display: flex;
+          flex-wrap: wrap; }
+          #cal-type-1 .calendar #days li .stuff span {
+            position: relative;
+            flex-grow: 1;
+            width: 10px;
+            height: 10px;
+            top: 0; }
+            #cal-type-1 .calendar #days li .stuff span.p1 {
+              background-color: #ed5565; }
+            #cal-type-1 .calendar #days li .stuff span.p2 {
+              background-color: #ffcb2c; }
+            #cal-type-1 .calendar #days li .stuff span.p3 {
+              background-color: #007ee5; }
+            #cal-type-1 .calendar #days li .stuff span.p4 {
+              background-color: #75d701; }
+      #cal-type-1 .calendar #days li:hover {
+        border-bottom: 2px solid #2c384a; }
       #cal-type-1 .calendar #days li.active {
-        box-shadow: 5px 5px 10px 0.1px rgba(0, 0, 0, 0.3); }
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 15px 0.1px rgba(0, 0, 0, 0.3); }
+        #cal-type-1 .calendar #days li.active:hover {
+          border-bottom: 2px solid transparent; }
   #cal-type-1 #remind {
-    max-width: 300px;
+    max-width: 400px;
     width: 100%;
-    padding: 10px; }
+    padding: 0 20px; }
     #cal-type-1 #remind .title {
-      font-weight: 500; }
+      padding: 5px;
+      font-family: "Brandon";
+      background: #f1f1f1;
+      text-align: center;
+      font-weight: 500;
+      background: #00c67c;
+      border-radius: 3px 3px 0 0;
+      color: #fff;
+      margin-bottom: 10px; }
 
 /* Helpers 
 ====================== */
@@ -428,13 +468,6 @@ body {
 .content {
   padding: 10px; }
 
-select {
-  outline: none;
-  padding: 5px 10px;
-  font-family: "Brandon";
-  border: 1px solid #f1f1f1;
-  width: 100%; }
-
 input:not([type="checkbox"]), input:not([type="radio"]), input:not([type="file"]), textarea, select {
   border-radius: 2px;
   border: 1px solid #a9a9a9;
@@ -452,5 +485,25 @@ input:not([type="checkbox"]), input:not([type="radio"]), input:not([type="file"]
 label {
   margin-bottom: 5px;
   display: block; }
+
+.two-fields {
+  display: flex;
+  width: 100%; }
+  .two-fields label {
+    width: calc(50% - 2px);
+    margin: 0; }
+    .two-fields label:nth-child(1) {
+      margin-right: 10px; }
+
+button[type="submit"] {
+  background-color: #007ee5;
+  color: #fff;
+  font-family: "Brandon";
+  font-weight: 500;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 10px;
+  text-align: center;
+  max-width: 150px;
+  margin: 10px auto; }
 
 /*# sourceMappingURL=main.css.map */

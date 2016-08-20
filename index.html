@@ -61,7 +61,9 @@
 							<li><span class="date">2</span></li>
 							<li><span class="date">3</span></li>
 							<li><span class="date">4</span></li>
-							<li><span class="date">5</span></li>
+							<li>
+								<span class="date">5</span>
+							</li>
 							<li><span class="date">6</span></li>
 							<li><span class="date">7</span></li>
 							<li><span class="date">8</span></li>
@@ -70,7 +72,13 @@
 							<li><span class="date">11</span></li>
 							<li><span class="date">12</span></li>
 							<li><span class="date">1</span></li>
-							<li><span class="date">2</span></li>
+							<li>
+								<div class="stuff">
+									<span class="p3"></span>
+									<span class="p1"></span>
+									<span class="p4"></span>
+								</div>
+								<span class="date">2</span></li>
 							<li><span class="date">3</span></li>
 							<li><span class="date">4</span></li>
 							<li><span class="date">5</span></li>
@@ -79,7 +87,14 @@
 							<li><span class="date">8</span></li>
 							<li><span class="date">9</span></li>
 							<li><span class="date">10</span></li>
-							<li><span class="date">11</span></li>
+							<li>
+								<div class="stuff">
+									<span class="p1"></span>
+									<span class="p2"></span>
+									<span class="p3"></span>
+									<span class="p4"></span>
+								</div>
+								<span class="date">11</span></li>
 							<li><span class="date">12</span></li>
 							<li><span class="date">1</span></li>
 							<li><span class="date">2</span></li>
@@ -100,13 +115,32 @@
 						<div class="title">
 							What should you be reminded of?
 						</div>
-						<label>
-							<input type="" name="" placeholder="Tag for your remainder">
-						</label>
-						<label>
-							<input type="" name="" >
-						</label>
-
+						<form>
+							<label>
+								<input type="" name="" placeholder="Tag for your remainder">
+							</label>
+							<label>
+								<textarea placeholder="Description if needed"></textarea>
+							</label>
+							<div class="two-fields">
+								<label>
+									<input type="time">
+								</label>
+								<label>
+									<select>
+										<option value="0">Set priority</option>
+										<option>Low</option>
+										<option>Mid</option>
+										<option>High</option>
+										<option>Extreme</option>
+									</select>
+								</label>
+							</div>
+								<button type="submit">
+									Remind me sentinel
+								</button>
+						</form>
+						
 					</div>
 				
 				</div>
