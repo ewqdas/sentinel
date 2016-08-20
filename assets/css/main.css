@@ -1,21 +1,83 @@
 /* Calendar */
+@font-face {
+  font-family: "Brandon";
+  src: url("../font/Brandon--light.woff2") format("woff2"), url("../font/Brandon--light.woff") format("woff");
+  font-style: normal;
+  font-weight: 300; }
+@font-face {
+  font-family: "Brandon";
+  src: url("../font/Brandon--regular.woff2") format("woff2"), url("../font/Brandon--regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400; }
+@font-face {
+  font-family: "Brandon";
+  src: url("../font/Brandon--medium.woff2") format("woff2"), url("../font/Brandon--medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500; }
+@font-face {
+  font-family: "Brandon";
+  src: url("../font/Brandon--bold.woff2") format("woff2"), url("../font/Brandon--bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700; }
+@font-face {
+  font-family: "Brandon";
+  src: url("../font/Brandon--black.woff2") format("woff2"), url("../font/Brandon--black.woff") format("woff");
+  font-style: normal;
+  font-weight: 900; }
 html {
   padding: 0;
   margin: 0;
   color: #1E1D26;
-  background: #fff; }
+  position: relative;
+  width: 100%; }
 
 * {
   box-sizing: border-box; }
 
 #container {
-  background: rgba(255, 255, 255, 0.8);
   max-width: 1200px;
   width: 100%;
-  margin: 40px auto;
-  padding: 10px;
+  height: 85vh;
+  top: 40px;
+  z-index: 1000;
+  margin: 0 auto;
   position: fixed;
   left: 0;
-  right: 0; }
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 50px 0.1px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  border: 1px solid #d9d9d9; }
+
+.no-ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none; }
+
+#header {
+  border-bottom: 1px solid #f1f1f1;
+  display: inline-block;
+  width: 100%; }
+  #header .logo {
+    float: left;
+    margin-right: 20px;
+    text-align: center;
+    margin: 10px 0 0 10px; }
+  #header .nav {
+    float: left;
+    margin: 0 10px; }
+    #header .nav li {
+      display: inline-block; }
+      #header .nav li a {
+        padding: 15px 10px;
+        font-family: "Brandon";
+        display: inline-block;
+        color: #47525d;
+        text-decoration: none;
+        border-top: 3px solid transparent;
+        transition: .22s all linear; }
+      #header .nav li a:hover {
+        color: #1E1D26;
+        border-top: 3px solid #75d701; }
 
 /*# sourceMappingURL=main.css.map */
