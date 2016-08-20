@@ -32,8 +32,14 @@
 		events: {
 			'submit .new_remainder' : "newTodo",
 			'click #days > li' : "daySelect",
-			'click #months > li' : "monthSelect"
+			'click #months > li' : "monthSelect",
+			'change #year' : "yearSelect"
 		},
+
+		yearSelect : function(ev){
+			$("#ihy").attr("value",$(ev.currentTarget).value);
+		},
+
 		newTodo : function(ev){
 			router.navigate("home",{});
 			var formData = $(ev.currentTarget).serializeObject();
@@ -41,7 +47,8 @@
 			rm.save(formData , {
 				success : function(data){
 					alert("Success");
-					$(".popup.reminder").addClass("active");
+					// $(".popup.reminder").addClass("active");
+					$(".popup.remainder").fadeIn();
 					router.navigate("",{trigger : true});
 				},
 				error : function(er){
@@ -61,6 +68,8 @@
 			$(ele).parent().addClass("active");
 			$("#ihd").attr("value" , vl);
 
+			console.log(vl)
+
 		},
 
 		monthSelect : function(ev){
@@ -72,18 +81,44 @@
 
 			$("#ihm").attr("value" , $(ele).attr("data-id"));
 
-		}
+		},
 
 	});
 
-	// var ReminderData = Backbone.View.extend({
-		// el : 
-	// })
+	var todayStuff = Backbone.Collection.extend({
+		url : "core/getTimeline.php"
+	})
+
+	var todayModel = Backbone.Model.extend({
+		urlRoot : "core/getTimeline.php"
+	})
+
+	var Timeline = Backbone.View.extend({
+		el : "#thisday",
+		render  : function(){
+			$("#thisday").addClass("active");
+			var temp = _.template($("#timeline-template").html(),{});
+			$("#thisday").html(temp)
+			var todaystuff = new todayStuff();
+			var that = this;
+				todaystuff.fetch({
+					success : function(data){
+						// var temp = _.template($("#timeline-template").html(),{data : data.models});
+						// that.$el.html($temp);
+						console.log("Yeah")
+					},
+					error : function(er){
+						alert("error");
+						console.log(er);
+					}
+				});
+		}
+	})
 
 	var Router = Backbone.Router.extend({
 		routes : {
 			"" : "home",
-			"d": "datepicked"
+			"today": "timeline"
 		}
 	});
 
@@ -96,6 +131,12 @@
 		userData.render();
 	});
 
+	var timeline = new Timeline();
+
+	router.on("route:timeline",function(){
+		userData.render();
+		timeline.render();
+	})
 
 
 

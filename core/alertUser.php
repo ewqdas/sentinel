@@ -7,8 +7,8 @@
     $p = new RestAPI($auth_id, $auth_token);
     // Send a message
     $params = array(
-            'src' => '918971651434', // Sender's phone number with country code
-            'dst' => '918971651434', // Receiver's phone number with country code
+            'src' => '+918971651434', // Sender's phone number with country code
+            'dst' => '+919449193484', // Receiver's phone number with country code
             'text' => 'Hi, Message from Plivo' // Your SMS text message
         );
     // Send message
