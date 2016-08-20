@@ -2,7 +2,7 @@
 
 require_once "db.php";
 
-echo json_encode($_GET);
+echo json_encode($_REQUEST);
 
 /*
 if(isset($_POST)){
