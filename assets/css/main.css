@@ -65,56 +65,53 @@ h4.page-title {
       background: #75d701;
       border-radius: 3px 3px 0 0;
       color: #fff; }
-    #cal-type-1 .calendar #days {
-      display: flex;
-      flex-wrap: wrap; }
-      #cal-type-1 .calendar #days li {
-        max-width: 85.25px;
+    #cal-type-1 .calendar #days td {
+      width: 85.25px;
+      text-align: center;
+      height: 58.333px;
+      background: rgba(230, 230, 230, 0.1);
+      font-weight: 700;
+      border: 1px solid #f9f9f9;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: .22s all linear;
+      position: relative; }
+      #cal-type-1 .calendar #days td .date {
+        position: absolute;
+        right: 10px;
+        bottom: 10px; }
+      #cal-type-1 .calendar #days td .stuff {
+        position: absolute;
+        left: 0;
         width: 100%;
-        margin: 0;
-        flex-grow: 1;
-        background: rgba(230, 230, 230, 0.1);
-        font-weight: 700;
-        height: 58.333px;
-        position: relative;
-        border: 1px solid #f9f9f9;
-        cursor: pointer;
-        border-bottom: 2px solid transparent;
-        transition: .22s all linear; }
-        #cal-type-1 .calendar #days li .date {
-          position: absolute;
-          right: 10px;
-          bottom: 10px; }
-        #cal-type-1 .calendar #days li .stuff {
-          position: absolute;
-          left: 0;
-          width: 100%;
-          top: 10px;
-          display: flex;
-          flex-wrap: wrap; }
-          #cal-type-1 .calendar #days li .stuff span {
-            position: relative;
-            flex-grow: 1;
-            width: 10px;
-            height: 10px;
-            border-radius: 50px;
-            top: 0; }
-            #cal-type-1 .calendar #days li .stuff span.p1 {
-              background-color: #ed5565; }
-            #cal-type-1 .calendar #days li .stuff span.p2 {
-              background-color: #ffcb2c; }
-            #cal-type-1 .calendar #days li .stuff span.p3 {
-              background-color: #007ee5; }
-            #cal-type-1 .calendar #days li .stuff span.p4 {
-              background-color: #75d701; }
-      #cal-type-1 .calendar #days li:hover {
-        border-bottom: 2px solid #2c384a; }
-      #cal-type-1 .calendar #days li.active {
-        border-left: 1px solid rgba(0, 0, 0, 0.1);
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        box-shadow: 0 0 15px 0.1px rgba(0, 0, 0, 0.3); }
-        #cal-type-1 .calendar #days li.active:hover {
-          border-bottom: 2px solid transparent; }
+        top: 10px;
+        display: flex;
+        flex-wrap: wrap; }
+        #cal-type-1 .calendar #days td .stuff span {
+          position: relative;
+          flex-grow: 1;
+          width: 10px;
+          height: 10px;
+          border-radius: 50px;
+          top: 0; }
+          #cal-type-1 .calendar #days td .stuff span.p1 {
+            background-color: #ed5565; }
+          #cal-type-1 .calendar #days td .stuff span.p2 {
+            background-color: #ffcb2c; }
+          #cal-type-1 .calendar #days td .stuff span.p3 {
+            background-color: #007ee5; }
+          #cal-type-1 .calendar #days td .stuff span.p4 {
+            background-color: #75d701; }
+    #cal-type-1 .calendar #days .dayt {
+      border-bottom: 1px solid #d9d9d9; }
+    #cal-type-1 .calendar #days td:hover {
+      border-bottom: 2px solid #2c384a; }
+    #cal-type-1 .calendar #days td.active {
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 15px 0.1px rgba(0, 0, 0, 0.3); }
+      #cal-type-1 .calendar #days td.active:hover {
+        border-bottom: 2px solid transparent; }
   #cal-type-1 #remind {
     max-width: 385px;
     width: 100%;

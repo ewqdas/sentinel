@@ -2,8 +2,49 @@
 (function(){
 	// "use strict"
 
+
+	
+
+	function Calendar(year, month) { 
+		days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+		  var table = ['<table><tr>']
+			for(i=0;i<7;i++){
+				table.push("<td class=\"dayt\">"+days[i]+"</td>");
+			}
+			table.push("</tr>");
+
+			  var mon = month ;
+		  var d = new Date(year, mon)
+		  for (var i=0; i<d.getDay(); i++) {
+		    table.push('<td></td>')
+		  }
+		  while(d.getMonth() == mon) {
+		    table.push('<td><span class="date">'+d.getDate()+'</span></td>')
+		    if (d.getDay() % 7 == 6) {   // (4)
+		      table.push('</tr><tr>')
+		    }
+		    d.setDate(d.getDate()+1)  
+		  }
+		  
+		  for (var i=d.getDay(); i<7; i++) {
+		    table.push('<td></td>')
+		  }
+		  table.push('</tr></table>')
+		  return table.join('\n');
+		}
+
+	
+
+
+
+
 	$.fn.serializeObject = function()
     {
+
+    	/*
+			Src : Douglous crockford
+    	*/
+
         var o = {};
         var a = this.serializeArray();
         $.each(a, function() {
@@ -27,33 +68,61 @@
 		el : "#cal-type-1",
 		render : function(){
 			var temp = _.template($("#todo-form-template").html(),{});
+			d = new Date();
+			y = ($("#ihy").val() === undefined) ? d.getFullYear() : $("#ihy").val();
+			m = ($("#ihm").val() === undefined) ? d.getMonth(): $("#ihm").val();
+
+			if($("#ihy").val() === undefined){
+				console.log("yea")
+				$("#ihy").val(d.getFullYear());
+				console.log(d.getFullYear())
+			}
+			if($("#ihm").val() === undefined){
+				$("#ihm").val(d.getMonth());
+			}
+
+			console.log("sss",$("#ihm").val());
+			console.log("sss",$("#ihy").val());
+
+			$("#days").html(Calendar(y,m));
 			this.$el.find("#remind").html(temp);
 		},
 		events: {
 			'submit .new_remainder' : "newTodo",
-			'click #days > li' : "daySelect",
+			'click #days td' : "daySelect",
 			'click #months > li' : "monthSelect",
 			'change #year' : "yearSelect"
 		},
 
 		yearSelect : function(ev){
-			$("#ihy").attr("value",$(ev.currentTarget).value);
+			$("#ihy").val($(ev.currentTarget).val());
 		},
 
 		newTodo : function(ev){
 			router.navigate("home",{});
+			d = new Date();
+			if($("#ihd").val() === undefined){
+				$("#ihd").val(d.getDay()+1);
+			}  
+			if($("#ihy").val() === undefined){
+				$("#ihy").val(d.getFullYear());
+			}
+			if($("#ihm").val() === undefined){
+				$("#ihm").val(d.getMonth()+1);
+			}
 			var formData = $(ev.currentTarget).serializeObject();
 			var rm = new reminders();
-			rm.save(formData , {
-				success : function(data){
-					alert("Success");
-					// $(".popup.reminder").addClass("active");
-					$(".popup.remainder").fadeIn();
-					router.navigate("",{trigger : true});
-				},
-				error : function(er){
-				}
-			});
+			console.log($(ev.currentTarget).serialize());
+			// rm.save(formData , {
+			// 	success : function(data){
+			// 		alert("Success");
+			// 		// $(".popup.reminder").addClass("active");
+			// 		$(".popup.remainder").fadeIn();
+			// 		router.navigate("",{trigger : true});
+			// 	},
+			// 	error : function(er){
+			// 	}
+			// });
 			return false;
 		},
 
@@ -62,13 +131,12 @@
 			var ele = $(ev.currentTarget).children(".date")[0]
 			var vl = ele.innerHTML;
 			
-			temp = $("#days li.active");
+			temp = $("#days td.active");
 			$(temp).removeClass("active")
 
 			$(ele).parent().addClass("active");
-			$("#ihd").attr("value" , vl);
+			$("#ihd").val(vl);
 
-			console.log(vl)
 
 		},
 
@@ -79,7 +147,9 @@
 			$(temp).removeClass("active");
 			$(ele).addClass("active");
 
-			$("#ihm").attr("value" , $(ele).attr("data-id"));
+			$("#ihm").val($(ele).attr("data-id"));
+
+			this.render();
 
 		},
 
@@ -96,7 +166,7 @@
 	var Timeline = Backbone.View.extend({
 		el : "#thisday",
 		render  : function(){
-			$("#thisday").addClass("active");
+			$("#thisday").fadeIn();
 			var temp = _.template($("#timeline-template").html(),{});
 			$("#thisday").html(temp)
 			var todaystuff = new todayStuff();
@@ -112,6 +182,13 @@
 						console.log(er);
 					}
 				});
+		},
+		events : {
+			"click .modal-close" : "closeTimeline"
+		},
+		closeTimeline : function(){
+			$("#thisday").fadeOut();
+			router.navigate("",{trigger : true});
 		}
 	})
 
