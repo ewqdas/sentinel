@@ -33,11 +33,13 @@
 			'submit .new_remainder' : "newTodo"
 		},
 		newTodo : function(ev){
+			router.navigate("home",{});
 			var formData = $(ev.currentTarget).serializeObject();
 			var rm = new reminders();
+
 			rm.save(formData , {
 				success : function(data){
-					alert("Success");
+					// alert("Success");
 					router.navigate("",{trigger : true});
 				},
 				error : function(er){
