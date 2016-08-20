@@ -2,32 +2,41 @@
 
 require_once "db.php";
 
-echo json_encode($_REQUEST);
 
-/*
-if(isset($_POST)){
+$post_vars = json_decode(file_get_contents('php://input'), true); 
 
-	print_r($_POST);
+if(isset($post_vars)){
 
-	$tag = $_POST["s_tag"];
-	$desc = $_POST["s_desc"];
-	$when_t = $_POST["s_time"];
-	$when_d = $_POST["s_day"];
-	$when_m = $_POST["s_month"];
-	$when_y = $_POST["s_year"];
-	$pri = $_POST["s_pri"];
+	$tag = $post_vars["s_tag"];
+	$desc = $post_vars["s_desc"];
+	$when_t = $post_vars["s_time"];
+	$when_d = $post_vars["s_day"];
+	$when_m = $post_vars["s_month"];
+	$when_y = $post_vars["s_year"];
+	$pri = $post_vars["s_pri"];
 
 	$qry = sprintf("INSERT INTO user_todo (name, detail ,pri ,s_t ,s_d ,s_m ,s_y ) VALUES ('%s','%s','%d','%s','%d','%d','%d')",$tag,$desc,$pri,$when_t,$when_d,$when_m,$when_y);
 
 	$res = $con->query($qry);
 	if($res){
-		echo "Done";
+		// http_response_code(200);
+		$msg = [
+					"status" => "success",
+					"msg" => "Success fully added ".$tag
+				];
 	}else{
-		echo "Oh damn";
+		// http_response_code(400);
+		$msg = [
+					"status" => "error",
+					"msg" => "Couldnt add ".$tag
+				];
 	}
 
+		echo json_encode($msg);
 }
 
-*/
+
+
+
 
 ?>
