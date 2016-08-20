@@ -32,6 +32,7 @@
 		events: {
 			'submit .new_remainder' : "newTodo",
 			'click #days > li' : "daySelect",
+			'click #months > li' : "monthSelect"
 		},
 		newTodo : function(ev){
 			router.navigate("home",{});
@@ -40,6 +41,7 @@
 			rm.save(formData , {
 				success : function(data){
 					alert("Success");
+					$(".popup.reminder").addClass("active");
 					router.navigate("",{trigger : true});
 				},
 				error : function(er){
@@ -49,10 +51,27 @@
 		},
 
 		daySelect : function(ev){
-			// console.log("dick");
-			var vl = $(ev.currentTarget).children(".date")[0].innerHTML;
-			$("#ihd").value = vl;
-			console.log($("#ihd").value) 
+
+			var ele = $(ev.currentTarget).children(".date")[0]
+			var vl = ele.innerHTML;
+			
+			temp = $("#days li.active");
+			$(temp).removeClass("active")
+
+			$(ele).parent().addClass("active");
+			$("#ihd").attr("value" , vl);
+
+		},
+
+		monthSelect : function(ev){
+
+			var ele = $(ev.currentTarget);
+			var temp = $("#months li.active");
+			$(temp).removeClass("active");
+			$(ele).addClass("active");
+
+			$("#ihm").attr("value" , $(ele).attr("data-id"));
+
 		}
 
 	});

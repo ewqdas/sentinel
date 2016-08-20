@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="assets/font/fa/css/font-awesome.min.css">
 
 </head>
-<body style="background: #f8f8f8; background-size: cover;background-position: center center;background-attachment: fixed;">
+<body style="background-image: url('helper_files/10.jpg'); background-size: cover;background-position: center center;background-attachment: fixed;">
 				<!-- <img src="assets/img/logo/logo_img_trans.png" width="300px"> -->
 
 <div id="container">
@@ -28,11 +28,11 @@
 		<div class="content-wrap">
 
 			<div id="cal-type-1">
-				<h4 class="page-title">Schedule something and sentinel will remind you</h4>
+				<h4 class="page-title"><i class="fa fa-calendar"></i> Schedule something and sentinel will remind you</h4>
 				<div class="cal-wrap">
 					<div class="months">
 					<div class="title">Year</div>
-						<select>
+						<select id="year">
 							<option>2000</option>
 							<option>2000</option>
 							<option>2000</option>
@@ -40,19 +40,19 @@
 							<option>2000</option>
 						</select>
 						<div class="title">Month</div>
-						<ul class="no-ul">
-							<li>January</li>
-							<li>February</li>
-							<li>March</li>
-							<li>April</li>
-							<li>May</li>
-							<li>June</li>
-							<li>July</li>
-							<li class="active">August</li>
-							<li>September</li>
-							<li>October</li>
-							<li>November</li>
-							<li>December</li>
+						<ul class="no-ul" id="months">
+							<li data-id="0">January</li>
+							<li data-id="1">February</li>
+							<li data-id="2">March</li>
+							<li data-id="3">April</li>
+							<li data-id="4">May</li>
+							<li data-id="5">June</li>
+							<li data-id="6">July</li>
+							<li data-id="7" class="active">August</li>
+							<li data-id="8">September</li>
+							<li data-id="9">October</li>
+							<li data-id="10">November</li>
+							<li data-id="11">December</li>
 						</ul>
 					</div>
 
@@ -202,7 +202,7 @@
 						</div>
 						<form class="new_remainder">
 							<div class="when">
-								August 10 / 12-45 PM 
+								<span class="m">August <span class="d">10</span> / <span class="t"> 12:34</span> PM 
 							</div>
 							<label>
 								<input type="text" name="s_tag" value="" placeholder="Tag for your remainder">
@@ -231,6 +231,12 @@
 									Remind me sentinel
 								</button>
 						</form>
+
+
+<div class="popup remainder">
+	Remainder added
+</div>
+
 
 </script>
 

@@ -45,7 +45,7 @@ h4.page-title {
         font-size: 1em;
         transition: .22s all linear; }
         #cal-type-1 .months ul li.active {
-          background-color: #dddbda; }
+          border: 1px solid #dddbda; }
       #cal-type-1 .months ul li:hover {
         border-bottom: 1px solid rgba(150, 150, 150, 0.5); }
   #cal-type-1 .calendar {
@@ -89,7 +89,7 @@ h4.page-title {
           position: absolute;
           left: 0;
           width: 100%;
-          top: 0;
+          top: 10px;
           display: flex;
           flex-wrap: wrap; }
           #cal-type-1 .calendar #days li .stuff span {
@@ -97,6 +97,7 @@ h4.page-title {
             flex-grow: 1;
             width: 10px;
             height: 10px;
+            border-radius: 50px;
             top: 0; }
             #cal-type-1 .calendar #days li .stuff span.p1 {
               background-color: #ed5565; }
@@ -118,7 +119,8 @@ h4.page-title {
     max-width: 385px;
     width: 100%;
     border: 1px solid #f1f1f1;
-    margin-left: 15px; }
+    margin-left: 15px;
+    background: #fff; }
     #cal-type-1 #remind .title {
       padding: 5px;
       font-family: "Brandon";
@@ -687,7 +689,7 @@ body {
   position: fixed;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.6);
+  background: linear-gradient(#fff, rgba(255, 255, 255, 0.9));
   box-shadow: 0 0 50px 0.1px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   border: 1px solid #d9d9d9; }
@@ -770,5 +772,28 @@ button[type="submit"] {
   max-width: 150px;
   margin: 10px auto;
   outline: none; }
+
+.popup {
+  position: fixed;
+  top: -100px;
+  left: 0;
+  right: 0;
+  max-width: 250px;
+  margin: 0 auto;
+  background: #7b8994;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px 15px;
+  transition: .22s all linear; }
+  .popup.active {
+    top: 50px; }
+@keyframes pulse {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0.5; }
+  100% {
+    opacity: 0; } }
 
 /*# sourceMappingURL=main.css.map */
