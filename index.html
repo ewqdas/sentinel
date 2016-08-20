@@ -28,7 +28,7 @@
 		<div class="content-wrap">
 
 			<div id="cal-type-1">
-				<h4 class="page-title">Schedule something</h4>
+				<h4 class="page-title">Schedule something and sentinel will remind you</h4>
 				<div class="cal-wrap">
 					<div class="months">
 					<div class="title">Year</div>
@@ -48,7 +48,7 @@
 							<li>May</li>
 							<li>June</li>
 							<li>July</li>
-							<li>August</li>
+							<li class="active">August</li>
 							<li>September</li>
 							<li>October</li>
 							<li>November</li>
@@ -114,37 +114,7 @@
 					</div>
 
 					<div id="remind">
-						<div class="title">
-							What should you be reminded of?
-						</div>
-						<form>
-							<div class="when">
-								August 10 / 12-45 PM 
-							</div>
-							<label>
-								<input type="" name="" placeholder="Tag for your remainder">
-							</label>
-							<label>
-								<textarea placeholder="Description if needed"></textarea>
-							</label>
-							<div class="two-fields">
-								<label>
-									<input type="time">
-								</label>
-								<label>
-									<select>
-										<option value="0">Set priority</option>
-										<option>Low</option>
-										<option>Mid</option>
-										<option>High</option>
-										<option>Extreme</option>
-									</select>
-								</label>
-							</div>
-								<button type="submit">
-									Remind me sentinel
-								</button>
-						</form>
+						
 						
 					</div>
 				
@@ -225,8 +195,51 @@
 
 
 
+
+<script type="text/template" id="todo-form-template">
+	<div class="title">
+							What should you be reminded of?
+						</div>
+						<form class="new_remainder">
+							<div class="when">
+								August 10 / 12-45 PM 
+							</div>
+							<label>
+								<input type="" name="s_tag" placeholder="Tag for your remainder">
+							</label>
+							<label>
+								<textarea name="s_desc" placeholder="Description if needed"></textarea>
+							</label>
+							<div class="two-fields">
+								<label>
+									<input type="time" name="s_time">
+								</label>
+								<label>
+									<select name="s_pri">
+										<option value="0">Set priority</option>
+										<option value="1">Low</option>
+										<option value="2">Mid</option>
+										<option value="3">High</option>
+										<option value="4">Extreme</option>
+									</select>
+								</label>
+							</div>
+							<input type="hidden" name="s_day" value="10">
+							<input type="hidden" name="s_month" value="8">
+							<input type="hidden" name="s_year" value="2016">
+								<button type="submit" name="go">
+									Remind me sentinel
+								</button>
+						</form>
+
+</script>
+
+
 <script src="assets/js/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="assets/js/jquery-2.2.4.min.js"><\/script>')</script>
+<script src="assets/js/underscore-min.js"></script>
+<script src="assets/js/backbone-min.js"></script>
+<script src="assets/js/site.js"></script>
+
 <script>
 $(".modal-close").on("click",function(e){
 	e.preventDefault();
@@ -234,5 +247,7 @@ $(".modal-close").on("click",function(e){
 })
 
 </script>
+
+
 </body>
 </html>

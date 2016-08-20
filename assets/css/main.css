@@ -44,6 +44,8 @@ h4.page-title {
         text-transform: capitalize;
         font-size: 1em;
         transition: .22s all linear; }
+        #cal-type-1 .months ul li.active {
+          background-color: #dddbda; }
       #cal-type-1 .months ul li:hover {
         border-bottom: 1px solid rgba(150, 150, 150, 0.5); }
   #cal-type-1 .calendar {
