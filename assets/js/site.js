@@ -24,34 +24,47 @@
 	})
 
 	var UserData = Backbone.View.extend({
-		el : "#remind",
+		el : "#cal-type-1",
 		render : function(){
 			var temp = _.template($("#todo-form-template").html(),{});
-			this.$el.html(temp);
+			this.$el.find("#remind").html(temp);
 		},
 		events: {
-			'submit .new_remainder' : "newTodo"
+			'submit .new_remainder' : "newTodo",
+			'click #days > li' : "daySelect",
 		},
 		newTodo : function(ev){
 			router.navigate("home",{});
 			var formData = $(ev.currentTarget).serializeObject();
 			var rm = new reminders();
-
 			rm.save(formData , {
 				success : function(data){
-					// alert("Success");
+					alert("Success");
 					router.navigate("",{trigger : true});
 				},
 				error : function(er){
 				}
 			});
 			return false;
+		},
+
+		daySelect : function(ev){
+			// console.log("dick");
+			var vl = $(ev.currentTarget).children(".date")[0].innerHTML;
+			$("#ihd").value = vl;
+			console.log($("#ihd").value) 
 		}
+
 	});
+
+	// var ReminderData = Backbone.View.extend({
+		// el : 
+	// })
 
 	var Router = Backbone.Router.extend({
 		routes : {
-			"" : "home"
+			"" : "home",
+			"d": "datepicked"
 		}
 	});
 
