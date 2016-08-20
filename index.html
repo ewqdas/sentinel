@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="`">
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/font/fa/css/font-awesome.min.css">
+
 </head>
 <body style="background: #f8f8f8; background-size: cover;background-position: center center;background-attachment: fixed;">
 				<!-- <img src="assets/img/logo/logo_img_trans.png" width="300px"> -->
@@ -16,8 +18,8 @@
 				<img src="assets/img/logo/logo_img_trans.png" width="30px">
 			</a>
 			<ul class="no-ul nav">
-				<li><a href="">Calendar</a></li>
-				<li><a href="">Dashboard</a></li>
+				<li><a href="">My Calendar</a></li>
+				<li><a href="">New</a></li>
 			</ul>
 		</div>
 	</header>
@@ -116,6 +118,9 @@
 							What should you be reminded of?
 						</div>
 						<form>
+							<div class="when">
+								August 10 / 12-45 PM 
+							</div>
 							<label>
 								<input type="" name="" placeholder="Tag for your remainder">
 							</label>
@@ -152,9 +157,82 @@
 
 
 
+<div id="thisday">
+	
+	
+	<div class="notify">
+		<div class="when">
+			August 10 
+			<a href="" class="modal-close"><i class="fa fa-close"></i></a>
+		</div>
+	</div>
+
+		<ul class="timeline">
+
+			<li>
+				<div class="direction-r">
+					<div class="flag-wrapper">
+						<span class="flag">Permission letter from princi</span>
+						<span class="time-wrapper"><span class="time">Mid</span></span>
+					</div>
+					<div class="desc">Ask principal for the permission letter : Iit madras tech fest</div>
+				</div>
+			</li>
+		  
+			<li>
+				<div class="direction-l">
+					<div class="flag-wrapper">
+						<span class="flag">Meet my school friends</span>
+						<span class="time-wrapper"><span class="time">HIGH</span></span>
+					</div>
+					<div class="desc">I miss those idiots.. remember to take the thing.. the THING</div>
+				</div>
+			</li>
+
+			<li>
+				<div class="direction-r">
+					<div class="flag-wrapper">
+						<span class="flag">Fuck that bitch</span>
+						<span class="time-wrapper"><span class="time">extreme</span></span>
+					</div>
+					<div class="desc">I must fuck that chick really hard.</div>
+				</div>
+			</li>
+			<li>
+				<div class="direction-l">
+					<div class="flag-wrapper">
+						<span class="flag">Check out my immigration form</span>
+						<span class="time-wrapper"><span class="time">EXTREME</span></span>
+					</div>
+					<div class="desc">updates about the immigration and remeber to take passport,visa photos</div>
+				</div>
+			</li>
+			<li>
+				<div class="direction-r">
+					<div class="flag-wrapper">
+						<span class="flag">Commit suicide</span>
+						<span class="time-wrapper"><span class="time">EXTREME</span></span>
+					</div>
+					<div class="desc">Commit suicide and some shit.</div>
+				</div>
+			</li>
+
+		  
+		</ul>
+
+
+</div>
+
 
 
 <script src="assets/js/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/js/jquery-2.2.4.min.js"><\/script>')</script>
+<script>
+$(".modal-close").on("click",function(e){
+	e.preventDefault();
+	$("#thisday").fadeOut();
+})
+
+</script>
 </body>
 </html>
