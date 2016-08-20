@@ -21,15 +21,4 @@
     // Print the Message UUID
     echo "Message UUID : {$response['response']['message_uuid'][0]} <br>";
 ?>
-<!--
-Sample output
-Response : Array
-(
-    [api_id] => 6debfaec-a25e-11e4-96e3-22000abcb9af 
-    [message] => message(s) queued 
-    [message_uuid] => Array ( [0] => 6dffe3ea-a25e-11e4-a6e4-22000afa12b0 ) 
-)
-Api ID : 6debfaec-a25e-11e4-96e3-22000abcb9af 
-Message UUID : 6dffe3ea-a25e-11e4-a6e4-22000afa12b0 
--->
 
