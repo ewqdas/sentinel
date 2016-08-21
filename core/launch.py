@@ -1,13 +1,13 @@
 import plivo
 
-auth_id = "MAYTK0M2MZNJA1MJQ4Y2"
-auth_token = "OThkMjNiMTUwYzcyM2Y0ZGVkYzJlNWViMWM3NWRh"
+auth_id = ""
+auth_token = ""
 
 p = plivo.RestAPI(auth_id, auth_token)
 
 params = {
-    'src': '+919449193484', 
-    'dst' : '+918971651434', 
+    'src': '+91', 
+    'dst' : '+91', 
     'text' : "Sentinel is reminding you!!"
 }
 
