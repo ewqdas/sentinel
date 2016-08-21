@@ -1,6 +1,5 @@
 
 (function(){
-	// "use strict"
 
 
 	 function notifyUser(content) {
@@ -21,6 +20,12 @@
 
     $(window).ready(function(){
     	notifyUser("Its Senti time");
+    	d = new Date();
+
+    	$("#ihd").val(d.getDay());
+    	$("#ihm").val(d.getMonth());
+    	$("#ihy").val(d.getFullYear());
+
     })
 
 	function Calendar(year, month) { 
@@ -89,15 +94,10 @@
 
 			if($("#ihy").val() === undefined){
 				$("#ihy").val(d.getFullYear());
-				console.log($("#ihy").val(d.getFullYear()));
 			}
 			if($("#ihm").val() === undefined){
 				$("#ihm").val(d.getMonth());
 			}
-
-			console.log("sss",$("#ihm").val());
-			console.log("sss",$("#ihy").val());
-
 			$("#days").html(Calendar(y,m));
 			this.$el.find("#remind").html(temp);
 		},
@@ -129,8 +129,6 @@
 			console.log($(ev.currentTarget).serialize());
 			rm.save(formData , {
 				success : function(data){
-					// alert("Success");
-					// $(".popup.reminder").addClass("active");
 					notifyUser("Reminder Created");
 					router.navigate("",{trigger : true});
 				},
@@ -165,17 +163,8 @@
 
 			this.render();
 
-		},
-
-		updateClock : function(){
-			// <div class="when">
-								// <span class="m">August <span class="d">10</span> / <span class="t"> 12:34</span> PM 
-							// </div>
-
-			// $(".when > .m").html($("ihm").val());
-			// $(".when > .d").html($("ihm").val());
-
 		}
+
 
 	});
 
@@ -196,10 +185,10 @@
 			var todaystuff = new todayStuff();
 			var that = this;
 				todaystuff.fetch({
-					success : function(data){
-						var temp = _.template($("#timeline-template").html(),{data : data.models});
-						that.$el.html($temp);
-						console.log("Yeah")
+					success : function(todaystuff){
+						var temp = _.template($("#timeline-template").html(),{data : todaystuff.models});
+						that.$el.html(temp);
+						// console.log(JSON.parse(data))
 					},
 					error : function(er){
 						alert("error");
